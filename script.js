@@ -67,3 +67,50 @@ let consoleStyle = [
 ].join(";");
 
 console.log("%cThis is a fany mesage\nanother line", consoleStyle);
+
+function* myGenerator() {
+  let count = 0;
+  while (count < 10) {
+    yield count;
+    count++;
+  }
+}
+
+console.log(...myGenerator());
+const gen = myGenerator();
+function getGen() {
+  console.log(gen.next().value);
+}
+
+let testArray = [true, false, true, true];
+console.log(testArray.reduce((a1, a2) => a1 || a2));
+
+testArray = [1];
+console.log(
+  testArray.reduce((a1, a2) => {
+    console.log(typeof a1, typeof a2);
+    return a1 + a2;
+  }, 10)
+);
+
+const sortArray = [4, 7, 2, 8, 3, 6, 3, 6, 4];
+console.log(sortArray.sort((a, b) => a - b));
+console.log(sortArray.sort((a, b) => b - a));
+
+const sparseArray = [0, , 1, 2, , , 3, 4, , 5];
+console.log(sparseArray.sort());
+
+let test = 1;
+test = (test++, test);
+console.log(test);
+
+test = 1;
+test = ++test;
+console.log(test);
+
+let a = 1,
+  b = 2,
+  c = 3;
+console.log(a, b, c);
+[a, b] = [b, a];
+console.log(a, b, c);

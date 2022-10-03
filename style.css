@@ -223,3 +223,11 @@ body {
 
   background-color: darkgray;
 }
+
+.resize {
+  background-color: lightgray;
+  margin-inline: 10%;
+  margin-bottom: 40vh;
+  resize: both;
+  overflow: auto;
+}
