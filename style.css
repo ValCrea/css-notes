@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --animation: movey, textColor;
+}
+
+#test1 {
+  margin: 5rem;
+  animation-name: var(--animation);
+  animation-duration: 3s, 1s;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: alternate, alternate;
+  animation-timing-function: ease-in-out, ease-in-out;
+}
+
+#test1:hover {
+  animation-play-state: paused;
+}
+
+@keyframes backgroundColor {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: blue;
+  }
+}
+
+@keyframes textColor {
+  from {
+    color: red;
+  }
+  to {
+    color: blue;
+  }
+}
+
+@keyframes movex {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 5rem 0;
+  }
+}
+
+@keyframes movey {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 10rem;
+  }
+}
+
+#test2 {
+  margin: 5rem;
+  color: white;
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+    0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+    0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+    0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+    0 0 4px black;
+}
+
+#test3 {
+  margin: 5rem;
+}
+
+.animation {
+  background: black;
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  animation: crash 5s forwards ease-out;
+}
+
+/*.animation:hover {
+  width: 200px;
+  translate: -25% -25%;
+  background-image: url("assets/giphy.gif");
+  background-size: contain;
+}*/
+
+@keyframes crash {
+  0% {
+    translate: 150vw;
+  }
+  89% {
+    background: black;
+  }
+  90% {
+    translate: 20vw;
+    background-image: url("assets/giphy.gif");
+    background-size: contain;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
+  99% {
+    opacity: 1;
+    background-image: url("assets/giphy.gif");
+    background-size: contain;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
+  100% {
+    translate: 20vw;
+    opacity: 0;
+  }
+}
+
+.rotate {
+  width: fit-content;
+  animation: rotate 5s forwards ease-in;
+}
+
+@keyframes rotate {
+  89% {
+    translate: 0;
+    rotate: 0deg;
+  }
+  91% {
+    translate: 10vh;
+    rotate: 15deg;
+  }
+  100% {
+    translate: 10vh;
+    rotate: 15deg;
+  }
+}
+
+#box1,
+#box2 {
+  padding: 5px;
+  margin: 50px;
+  background-color: lightgray;
+}
+
+#box1 {
+  box-shadow: 5px 5px gray;
+}
+
+#box2 {
+  box-shadow: 5px 5px 5px 2px gray;
+}
+
+.typing {
+  margin: 20px;
+  width: 14ch;
+  font-family: monospace;
+
+  animation: letters 5s steps(14) alternate infinite, line 0.75s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes letters {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes line {
+  to {
+    border-right: solid 1px black;
+  }
+}
+
+body {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='48' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🖱️</text></svg>"),
+    auto;
+}
+
+.text-decoration {
+  color: blue;
+  text-decoration: line-through;
+  text-decoration-color: green;
+}
+
+.text-decoration::before {
+  content: "🚀";
+  display: inline-block;
+  text-decoration: none;
+}
+
+.container {
+  margin-block: 250px;
+  width: 95%;
+  min-height: 1px;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.wrapper {
+  position: relative;
+  width: 20vw;
+  aspect-ratio: 1/1;
+}
+
+.element {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: lightgray;
+}
+
+.element:focus {
+  left: 50%;
+  translate: -50%;
+
+  width: 105%;
+  height: 130%;
+
+  background-color: darkgray;
+}
