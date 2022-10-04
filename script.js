@@ -114,3 +114,44 @@ let a = 1,
 console.log(a, b, c);
 [a, b] = [b, a];
 console.log(a, b, c);
+
+true && console.log("TRUE");
+false && console.log("FALSE");
+
+const objectArray = [
+  { l: "d", f: "G" },
+  { l: "a", f: "I" },
+  { l: "a", f: "B" },
+  { l: "c", f: "U" },
+];
+console.log(
+  objectArray.sort(
+    (o1, o2) => o1.l.localeCompare(o2.l) * 10 + o1.f.localeCompare(o2.f)
+  )
+);
+
+const forInOf = [5, 6, 7];
+forInOf["foo"] = "bar";
+for (fin in forInOf) console.log(fin);
+for (fof of forInOf) console.log(fof);
+
+// https://javascript.info/currying-partials debunking this article smh
+function curry(f) {
+  return function (a) {
+    return function (b) {
+      return function (c) {
+        return f(a, b, c);
+      };
+    };
+  };
+}
+
+function log(date, importance, message) {
+  console.log(
+    `[${date.getHours()}:${date.getMinutes()}] ${importance} ${message}`
+  );
+}
+
+const logTest = curry(log)(new Date())("Test");
+logTest("Time one");
+setTimeout(() => logTest("Time should be 5 sec bigger"), 5000);
