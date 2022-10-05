@@ -155,3 +155,5 @@ function log(date, importance, message) {
 const logTest = curry(log)(new Date())("Test");
 logTest("Time one");
 setTimeout(() => logTest("Time should be 5 sec bigger"), 5000);
+
+console.log(window.history);
